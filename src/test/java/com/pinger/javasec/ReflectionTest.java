@@ -1,7 +1,11 @@
 package com.pinger.javasec;
 
+import org.apache.commons.collections.Transformer;
+import org.apache.commons.collections.functors.ChainedTransformer;
 import org.junit.jupiter.api.Test;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import java.lang.reflect.Constructor;
 
 /**
@@ -30,6 +34,49 @@ public class ReflectionTest {
         constructor.setAccessible(true);
         clazz.getMethod("exec", String.class).invoke(constructor.newInstance(),"mspaint");
     }
+
+
+
+
+
+
+
+    @Test
+    public void testOne() throws Exception{
+
+
+        ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
+        ScriptEngine js = scriptEngineManager.getEngineByName("js");
+        System.out.println(js.eval("java.lang.Runtime.getRuntime().exec('mspaint')"));
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,9 +1,6 @@
 package com.pinger.javasec.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 /**
  * @author : p1n93r
@@ -18,9 +15,21 @@ public class SerialUtil {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
         objectOutputStream.writeObject(object);
         objectOutputStream.close();
-        System.out.println(outputStream);
+        System.out.println("[+] 已序列化对象...");
+        System.out.println("[+] 准备反序列化对象...");
         new ObjectInputStream(new ByteArrayInputStream(outputStream.toByteArray())).readObject();
     }
+
+    public static void savePayload(Object object,String targetPath)throws Exception{
+        FileOutputStream out = new FileOutputStream(new File(targetPath));
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(out);
+        objectOutputStream.writeObject(object);
+        objectOutputStream.close();
+        System.out.println("[+] 保存payload成功，文件位置："+targetPath);
+    }
+
+
+
 
 
 }

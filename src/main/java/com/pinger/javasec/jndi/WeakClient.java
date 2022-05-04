@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
  */
 public class WeakClient {
     public static void main(String[] args)throws Exception {
-        String url = "ldap://192.168.0.117:23457/DirList8";
+        String url = "ldap://127.0.0.1:4578";
         Context ctx = new InitialContext();
         ctx.lookup(url);
     }

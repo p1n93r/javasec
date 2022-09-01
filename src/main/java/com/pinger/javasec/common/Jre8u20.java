@@ -1,4 +1,4 @@
-package com.feihong.jre8u20;
+package com.pinger.javasec.common;
 
 
 import com.pinger.javasec.util.tmp.Gadgets;
